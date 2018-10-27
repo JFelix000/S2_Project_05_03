@@ -16,31 +16,87 @@
 
 /* Article Styles */
 
-
-
+/* This is to keep the article section on the left so that they don't collide with whatever side. */
+article {
+    float: left;
+    width: 384px;
+}
 
 /* First Line and Drop Cap Styles */
+/* We want the first of paragraph type to on the first line to have those font styles. */
+article p:first-of-type::first-line {
+    font-size: 1.25em;
+    font-variant: small-caps;
+}
+/* This first letter is only gonna appear on the first of type so that it appears on the first paragraph and only of that first paragraph's first letter, and not any other ones. */
+article p:first-of-type::first-letter{
+    font-size: 4em;
+    font-family: serif;
+    float: left;
+    line-height: .8em;
+    margin-right: 5px;
+    margin-bottom: 5px;
 
-
-
- 
+}
 
 /* Aside Styles */
-
-
+aside {
+    width: 768px; 
+    float: left;
+}
 
 
 /* Map Styles */
+/* The left and right margins are in auto so that it can adjust the battleMap in the middle. */
+div#battleMap {
+    width: 688px;
+    margin: 20px auto;
+    position: relative;
+}
 
-
-
+img#mapImage {
+    display: block;
+    width: 100%;
+}
 
 /* Interactive Map Styles */
-
-
-
+/* Absolute positioning starts it from the very top left of the page and makes a huge difference rather than using relative positioning. */
+a.battleMarkers {
+    position: absolute;
+}
+/* All of these create the coordinates so that they can make the ID of that specific dot in the right place on the map. */
+a#marker1 {
+    top: 220px;
+    left: 340px;
+}
+a#marker2 {
+    left: 358px;
+    top: 194px;
+}
+a#marker3 {
+    top: 202px;
+    left: 400px;
+}
+a#marker4 {
+    top: 217px;
+    left: 452px;
+}
+a#marker5 {
+    top: 229px;
+    left: 498px;
+}
+a#marker6 {
+    top: 246px;
+    left: 544px;
+}
 
 /* Map Information Styles */
+/* This is to hide the mapinfo that are linked on the stars. */
+div.mapInfo {
+    display: none;
+}
 
-
-
+/* I previously had no idea that you could add two selectors to make them work only together. That is really cool and it can open a lot of more possible options later. */
+a.battleMarkers:hover + div.mapInfo {
+    display: block;
+}
